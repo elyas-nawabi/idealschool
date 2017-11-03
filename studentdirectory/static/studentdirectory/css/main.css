@@ -187,11 +187,42 @@ div.row > div.mainpanel > .panel {
     height: 500px !important;
 }
 
-
-
-
-
-
+#editor-content-container div.row-box div.section-box {
+    box-sizing: border-box !important;
+    float: left;
+    margin-top: 15px;
+}
+.k-edit-form-container {
+    width: auto !important;
+}
+/*tabstrip inside popup winodw*/
+#editor-content-container > .k-tabstrip-wrapper > div#tabstrip {
+  background-color: #fff;
+  border-color: #fff;
+  background: #fff !important;
+}
+#editor-content-container > .k-tabstrip-wrapper > div#tabstrip:focus {
+  box-shadow: none;
+}
+.k-edit-label {
+  text-align: left !important;
+  width: 20% !important;
+}
+.k-edit-field {
+  float: left !important;
+}
+/*popup eidtor image*/
+div.image-field > img {
+  width: 150px;
+  height: auto;
+}
+#editor-content-container div.k-dropzone{
+  padding:2px;
+  background-color: #fff;
+}
+#editor-content-container div.k-dropzone > em {
+  display: none;
+}
 
 
 

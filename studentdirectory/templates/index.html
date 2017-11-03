@@ -19,8 +19,9 @@
         <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/bootstrap.techie.css" %}">
         <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/font-awesome.min.css" %}">
         <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.common.css" %}">
-        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.css" %}">
-        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.mobile.css" %}">
+        <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.css" %}"> -->
+        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.custom.css" %}">
+        <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.mobile.css" %}"> -->
 
         <script src="{% static "studentdirectory/js/vendor/modernizr-2.8.3.min.js" %}"></script>
     </head>
@@ -28,8 +29,194 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+        <script id="fileTemplate" type="text/x-kendo-template">
+          <!-- <div class='file-wrapper'>
+              <span class='image-view' id="image-wrapper"><img name="image" data-bind="attr:{ src:imageUrl  }" src=""></span>
+          </div> -->
+          <strong class="k-upload-status">
+              <button type='button' class='k-upload-action'></button>
+              <button type='button' class='k-upload-action'></button>
+          </strong>
+          <span class='k-progress'></span>
+        </script>
         <!-- Add your site or application content here -->
+        <!-- grid popup editor template -->
+        <script id="popup-editor" type="text/x-kendo-template">
+          <div id="editor-content-container">
+            <div class="row col-lg-12 row-box">
+              <div class="col-lg-6 section-box">
+                <div class="k-edit-label"><label for="image-field">Image</label></div>
+                <div class="k-edit-field image-field"><img src="" data-bind="attr:{src: imageUrl}"></div>
+                <div class="k-edit-label"><label for="files">Upload</label></div>
+                <div class="k-edit-field"><input name="files" id="files" type="file"/></div>
+                <div class="k-edit-label"><label for="roll_no">Roll no.</label></div>
+                <div class="k-edit-field"><input class="k-input k-textbox" name="roll_no" required="required" data-bind="value:roll_no" type="text"></div>
+              </div>
+              <div class="col-lg-6 section-box">
+                <!-- row 1 column 2 -->
+              </div>
+            </div>
+            <div id="tabstrip" class="col-lg-12">
+              <ul>
+                  <li id="tab1">Personal Info</li>
+                  <li id="tab2">Contact</li>
+                  <li id="tab3">Emergency Info</li>
+                  <li id="tab4">Medical Info</li>
+                  <li id="tab5">Transfer</li>
+              </ul>
+              <!-- tab 1 personal info -->
+              <div>
+                <div class="row col-lg-12 row-box">
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="name">Name</label></div>
+                    <div data-container-for="name" class="k-edit-field"><input class="k-input k-textbox" name="name" required="required" data-bind="value:name" type="text"></div>
+                    <div class="k-edit-label"><label for="f_name">Father's Name</label></div>
+                    <div data-container-for="f_name" class="k-edit-field"><input class="k-input k-textbox" name="f_name" required="required" data-bind="value:f_name" type="text"></div>
+                    <div class="k-edit-label"><label for="gf_name">Grand Father's Name</label></div>
+                    <div data-container-for="gf_name" class="k-edit-field"><input class="k-input k-textbox" name="gf_name" required="required" data-bind="source: student, value:gf_name" type="text"></div>
+                  </div>
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="gender">Gender</label></div>
+                    <div data-container-for="gender" class="k-edit-field">
+                      <select id="gender-select" class="" data-bind="value:gender">
+                      </select>
+                    </div>
+                    <div class="k-edit-label"><label for="dob">DOB</label></div>
+                    <div data-container-for="dob" class="k-edit-field">
+                      <input id="dob-picker" data-bind="value:dob" />
+                    </div>
+                    <div class="k-edit-label"><label for="nid_no">National ID</label></div>
+                    <div data-container-for="nid_no" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:nid_no" />
+                    </div>
+                    <div class="k-edit-label"><label for="nationality">Nationality</label></div>
+                    <div data-container-for="nationality" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:nationality" />
+                    </div>
+                    <div class="k-edit-label"><label for="religion">Religion</label></div>
+                    <div data-container-for="religion" class="k-edit-field">
+                      <select id="religion-select" class="" data-bind="value:religion">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- tab 2 contact -->
+              <div>
+                <div class="k-edit-label"><label for="phone">Phone</label></div>
+                <div data-container-for="phone" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:phone" />
+                </div>
+                <div class="k-edit-label"><label for="email">Email</label></div>
+                <div data-container-for="email" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:email" />
+                </div>
+                <div class="k-edit-label"><label for="current_add">Present Address</label></div>
+                <div data-container-for="current_add" class="k-edit-field">
+                  <textarea class="k-input k-textbox" data-bind="value:current_add" /></textarea>
+                </div>
+                <div class="k-edit-label"><label for="permanent_add">Permanent Address</label></div>
+                <div data-container-for="permanent_add" class="k-edit-field">
+                  <textarea class="k-input k-textbox" data-bind="value:permanent_add" /></textarea>
+                </div>
+              </div>
+              <!-- tab 3 emergency contact -->
+              <div>
+                <div class="row col-lg-12 row-box">
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="emg_contact1_name">Emergency contact 1</label></div>
+                    <div data-container-for="emg_contact1_name" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:emg_contact1_name" />
+                    </div>
+                    <div class="k-edit-label"><label for="emg_contact1_phone_1">Phone primary</label></div>
+                    <div data-container-for="emg_contact1_phone_1" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:emg_contact1_phone_1" />
+                    </div>
+                    <div class="k-edit-label"><label for="emg_contact1_phone_2">Phone secondary</label></div>
+                    <div data-container-for="emg_contact1_phone_2" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:emg_contact1_phone_2" />
+                    </div>
+                    <div class="k-edit-label"><label for="emg_contact1_relation">Relation</label></div>
+                    <div data-container-for="emg_contact1_relation" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:emg_contact1_relation" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="emg_contact2_name">Emergency contact 2</label></div>
+                    <div data-container-for="emg_contact2_name" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:emg_contact2_name" />
+                    </div>
+                    <div class="k-edit-label"><label for="emg_contact2_phone_1">Phone primary</label></div>
+                    <div data-container-for="emg_contact2_phone_1" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:emg_contact2_phone_1" />
+                    </div>
+                    <div class="k-edit-label"><label for="emg_contact2_phone_2">Phone secondary</label></div>
+                    <div data-container-for="emg_contact2_phone_2" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:emg_contact2_phone_2" />
+                    </div>
+                    <div class="k-edit-label"><label for="emg_contact2_relation">Relation</label></div>
+                    <div data-container-for="emg_contact2_relation" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:emg_contact2_relation" />
+                    </div>
+                  </div>
+                </div>
+              </div> 
+              <!-- tab 4 medical info -->
+              <div>
+                <div class="k-edit-label"><label for="blood_group">Blood group</label></div>
+                <div data-container-for="blood_group" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:blood_group" />
+                </div>
+                <div class="k-edit-label"><label for="alergies">Alergies</label></div>
+                <div data-container-for="alergies" class="k-edit-field">
+                  <textarea class="k-input k-textbox" data-bind="value:alergies" /></textarea>
+                </div>
+                <div class="k-edit-label"><label for="medications">Medications</label></div>
+                <div data-container-for="medications" class="k-edit-field">
+                  <textarea class="k-input k-textbox" data-bind="value:medications" /></textarea>
+                </div>
+                <div class="k-edit-label"><label for="medical_conditions">Medical conditions</label></div>
+                <div data-container-for="medical_conditions" class="k-edit-field">
+                  <textarea class="k-input k-textbox" data-bind="value:medical_conditions" /></textarea>
+                </div>
+              </div>
+              <!-- tab 5 transfer info -->
+              <div>
+                <div class="row row-box">
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="transfered_in_date">Se Parcha (Inward)</label></div>
+                    <div data-container-for="transfered_in_date" class="k-edit-field">
+                      <input id="transfered_in_date-picker" data-bind="value:transfered_in_date" />
+                    </div>
+                    <div class="k-edit-label"><label for="transfered_in_from_school">School</label></div>
+                    <div data-container-for="transfered_in_from_school" class="k-edit-field">
+                      <input data-bind="value:transfered_in_from_school" class="k-input k-textbox" />
+                    </div>
+                    <div class="k-edit-label"><label for="transfered_in_reason">Reason</label></div>
+                    <div data-container-for="transfered_in_reason" class="k-edit-field">
+                      <input data-bind="value:transfered_in_reason" class="k-input k-textbox" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="transfered_out_date">Se Parcha (Outward)</label></div>
+                    <div data-container-for="transfered_out_date" class="k-edit-field">
+                      <input id="transfered_out_date-picker"  data-bind="value:transfered_out_date" />
+                    </div>
+                    <div class="k-edit-label"><label for="transfered_out_to_school">School</label></div>
+                    <div data-container-for="transfered_out_to_school" class="k-edit-field">
+                      <input data-bind="value:transfered_out_to_school" class="k-input k-textbox" />
+                    </div>
+                    <div class="k-edit-label"><label for="transfered_out_reason">Reason</label></div>
+                    <div data-container-for="transfered_out_reason" class="k-edit-field">
+                      <input data-bind="value:transfered_out_reason" class="k-input k-textbox" />
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </script> <!-- /popup editor template -->
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -51,9 +238,9 @@
                 <li class="dropdown active">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Directory <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Students</a></li>
-                    <li><a href="#">Teachers</a></li>
-                    <li><a href="#">Staff</a></li>
+                    <li><a href="/students/">Students</a></li>
+                    <li><a href="/teachers/">Teachers</a></li>
+                    <li><a href="/staff/">Staff</a></li>
                   </ul>
                 </li>
                 <li class=""><a href="#">Classes<span class="sr-only">(current)</span></a></li>
@@ -114,18 +301,19 @@
           </div> <!-- /.sidenav -->
 
           <div class="col-lg-10 mainpanel">
-            <div class="panel panel-default">
-              <div class="panel-body">
+            <!-- <div class="panel panel-default">
+              <div class="panel-body"> -->
                 <div class="demo-section k-content wide">
-                  <div id="toolbar"></div>
+                  <div id="main-grid"></div>
                 </div>
-              </div>
-            </div>
+              <!-- </div>
+            </div> -->
           </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{% static "studentdirectory/js/vendor/jquery-1.12.0.min.js" %}"><\/script>')</script>
+        <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+        <!--<script>window.jQuery || document.write('<script src="{% static "studentdirectory/js/vendor/jquery-1.12.0.min.js" %}"><\/script>')</script>-->
+        <script src="{% static "studentdirectory/js/vendor/jquery-1.12.0.min.js" %}"></script>
         <script src="{% static "studentdirectory/js/plugins.js" %}"></script>
         <script src="{% static "studentdirectory/js/main.js" %}"></script>
 

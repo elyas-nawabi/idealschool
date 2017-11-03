@@ -1,0 +1,9 @@
+/*.pyc
+studentdirectory/*.pyc
+*.pyc
+*.sqlite3
+files/*
+*~
+*.log
+*.pid
+studentdirectory/migrations
