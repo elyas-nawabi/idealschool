@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 import uuid
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 # Create your models here.
 
 def student_image_path(instance, filename):
@@ -32,29 +34,29 @@ class Student(models.Model):
 	gf_name = models.CharField(max_length=50)
 	roll_no = models.CharField(max_length=10)
 	gender = models.CharField(max_length=2, choices=GENDER_CHOICES, default=MALE)
-	dob = models.DateField()
-	nid_no = models.CharField(max_length=10)
-	nationality = models.CharField(max_length=50)
+	dob = models.DateField(null=True)
+	nid_no = models.CharField(max_length=10, null=True)
+	nationality = models.CharField(max_length=50, null=True)
 	religion = models.CharField(max_length=2, choices=RELIGION_CHOICES, default=ISLAM)
-	phone = models.CharField(max_length=12)
-	email = models.CharField(max_length=50)
-	current_add = models.TextField()
-	permanent_add = models.TextField()
+	phone = models.CharField(max_length=12, null=True)
+	email = models.CharField(max_length=50, null=True)
+	current_add = models.TextField(null=True)
+	permanent_add = models.TextField(null=True)
 	image = models.ForeignKey(StudentImage, on_delete=models.SET_NULL, null=True)
 	#emergency info
-	emg_contact1_name = models.CharField(max_length=50)
-	emg_contact1_phone_1 = models.CharField(max_length=12)
-	emg_contact1_phone_2 = models.CharField(max_length=12)
-	emg_contact1_relation = models.CharField(max_length=50)
+	emg_contact1_name = models.CharField(max_length=50, null=True)
+	emg_contact1_phone_1 = models.CharField(max_length=12, null=True)
+	emg_contact1_phone_2 = models.CharField(max_length=12, null=True)
+	emg_contact1_relation = models.CharField(max_length=50, null=True)
 	emg_contact2_name = models.CharField(max_length=50, null=True)
 	emg_contact2_phone_1 = models.CharField(max_length=12, null=True)
 	emg_contact2_phone_2 = models.CharField(max_length=12, null=True)
 	emg_contact2_relation = models.CharField(max_length=50, null=True)
 	#medical info
-	blood_group = models.CharField(max_length=5)
-	alergies = models.TextField()
-	medications = models.TextField()
-	medical_conditions = models.TextField()
+	blood_group = models.CharField(max_length=5, null=True)
+	alergies = models.TextField(null=True)
+	medications = models.TextField(null=True)
+	medical_conditions = models.TextField(null=True)
 	#se parcha awurda
 	transfered_in_date = models.DateField(null=True)
 	transfered_in_from_school = models.CharField(max_length=50, null=True)
@@ -68,13 +70,22 @@ class Student(models.Model):
 	# natural_key.dependencies = ['studentdirectory.studentimage']
 
 def student_doc_path(instance, filename):
-	return 'files/{0} [{1}]/docs/{2}'.format(instance.student.name, instance.student.uid, filename)
+	return 'files/{0} [{1}]/docs/{2}'.format(instance.student.name, instance.student.usid, filename)
 
 class StudentDoc(models.Model):
 	uid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 	student = models.ForeignKey(Student)
 	file = models.FileField(upload_to=student_doc_path)
 
-
+#signal receiver to delete student_image on_delete of student
+@receiver(post_delete, sender=Student)
+def delete_student_image(sender, **kwargs):
+	# print 'signal sender',kwargs['instance'].image.uid
+	try:
+		image_id = kwargs['instance'].image.uid
+		image = StudentImage.objects.get(uid=image_id)
+		image.delete()
+	except Exception as e:
+		print e
 
 

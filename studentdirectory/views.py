@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
-from .models import Student, StudentImage
+from .models import Student, StudentImage, StudentDoc
 import json
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
@@ -48,13 +48,30 @@ def create(request):
 	result = serializers.serialize('json', new_records, use_natural_foreign_keys=True)
 	return HttpResponse(result)
 
+def destroy(request):
+	#raise 405 on non-ajax requests
+	if not request.is_ajax() or request.method != 'POST':
+		return HttpResponse(status=405)
+
+	usid = request.POST.dict()['id']
+	try:
+		student = Student.objects.get(usid=usid)
+		student.delete()
+	except Exception as e:
+		print e
+		return HttpResponse(json.dumps({'error':e.message}), status=500)
+	return HttpResponse()
+
 def remove(request):
 	file_id = request.POST.dict()['pk']
 	try:
 		image = StudentImage.objects.get(uid=file_id)
+		#delete file
+		image.file.delete()
+		#delete model object
+		image.delete()
 	except StudentImage.DoesNotExist as e:
 		return HttpResponse(status=500)
-	image.delete()
 	return HttpResponse(json.dumps({'sucess':True}))
 # @csrf_exempt
 def upload(request):
@@ -72,6 +89,64 @@ def image(request):
 	except StudentImage.DoesNotExist as e:
 		return HttpResponse(status=500)
 	return HttpResponse(json.dumps({'sucess': True, 'url': image.file.url, 'pk': image.uid.hex}))
+
+def upload_document(request):
+	#raise 405 on non-ajax requests
+	if request.method != 'POST':
+		return HttpResponse(status=405)
+	student_usid = request.POST.dict()['id']
+	try:
+		student = Student.objects.get(usid=student_usid)
+	except Student.DoesNotExist as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)
+	try:
+		doc = StudentDoc(file=request.FILES['files'], student=student)
+		doc.save()
+	except Exception as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)
+	return HttpResponse()
+
+def read_document(request):
+	#raise 405 on non-ajax requests
+	if not request.is_ajax():
+		return HttpResponse(status=405)
+	student_usid = request.GET.dict()['id']
+	try:
+		student = Student.objects.get(usid=student_usid)
+	except Student.DoesNotExist as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)
+
+	docs = student.studentdoc_set.all()
+	serialized_docs = serializers.serialize('json', docs)
+	return HttpResponse(serialized_docs)
+
+def delete_document(request):
+ 	#raise 405 on non-ajax requests
+	if not request.is_ajax() or request.method != 'POST':
+		return HttpResponse(status=405)
+	print request.POST.dict()
+	document_id = request.POST.dict()['id']
+	try:
+		doc = StudentDoc.objects.get(uid=document_id)
+		#delete file
+		doc.file.delete()
+		#delete model object
+		doc.delete()
+	except Exception as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)
+	return HttpResponse(json.dumps({}), status=200)
+
+def download_document(request):
+	#raise 405 on non-ajax requests
+	if not request.is_ajax() or request.method != 'POST':
+		return HttpResponse(status=405)
+	try:
+		doc = StudentDoc.objects.get(uid=document_id)
+	except StudentDoc.DoesNotExist as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)
+
+
+
 
 
 
