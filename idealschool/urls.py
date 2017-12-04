@@ -19,7 +19,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from studentdirectory import views
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^students/', include('studentdirectory.urls'), name='students')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

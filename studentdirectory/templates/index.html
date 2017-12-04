@@ -18,9 +18,10 @@
         <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/bootstrap.min.css" %}">
         <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/bootstrap.techie.css" %}">
         <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/font-awesome.min.css" %}">
-        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.common.css" %}">
-        <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.css" %}"> -->
-        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.custom.css" %}">
+        <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.common.css" %}"> -->
+        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.common-bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.bootstrap.min.css" %}">
+        <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.custom.css" %}"> -->
         <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.mobile.css" %}"> -->
 
         <script src="{% static "studentdirectory/js/vendor/modernizr-2.8.3.min.js" %}"></script>
@@ -29,16 +30,18 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <script id="fileTemplate" type="text/x-kendo-template">
-          <!-- <div class='file-wrapper'>
-              <span class='image-view' id="image-wrapper"><img name="image" data-bind="attr:{ src:imageUrl  }" src=""></span>
-          </div> -->
-          <strong class="k-upload-status">
-              <button type='button' class='k-upload-action'></button>
-              <button type='button' class='k-upload-action'></button>
-          </strong>
-          <span class='k-progress'></span>
-        </script>
+        <!-- <script id="fileEditListTemplate" type="text/x-kendo-template">
+          <div class="file-view k-widget">
+            <dl>
+              <dt>#:fileName#</dt>
+              <dd>#:fileType#</dd>
+            </dl>
+            <div class="edit-buttons">
+              <a class="k-button k-edit-button" href="\\#"><span class="k-icon k-i-edit"></span></a>
+              <a class="k-button k-delete-button" href="\\#"><span class="k-icon k-i-close"></span></a>
+            </div>
+          </div>
+        </script> -->
         <!-- Add your site or application content here -->
         <!-- grid popup editor template -->
         <script id="popup-editor" type="text/x-kendo-template">
@@ -63,6 +66,7 @@
                   <li id="tab3">Emergency Info</li>
                   <li id="tab4">Medical Info</li>
                   <li id="tab5">Transfer</li>
+                  <li id="tab6">Files</li>
               </ul>
               <!-- tab 1 personal info -->
               <div>
@@ -209,6 +213,21 @@
                     <div class="k-edit-label"><label for="transfered_out_reason">Reason</label></div>
                     <div data-container-for="transfered_out_reason" class="k-edit-field">
                       <input data-bind="value:transfered_out_reason" class="k-input k-textbox" />
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <!-- tab 6 files -->
+              <div>
+                <div class="row row-box">
+                  <div class="col-lg-6 section-box">
+                    <div id="filesGridView"></div>
+                    <!-- <div id="fileListPager" class="k-pager-wrap"></div> -->
+                  </div>
+                  <div class="col-lg-6 section-box">
+                    <div class="">
+                      <input name="files" id="documentUpload" type="file"></input>
                     </div>
                   </div>
                   
