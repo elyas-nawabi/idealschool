@@ -2,41 +2,91 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
+import uuid
 # Create your models here.
+def teacher_image_path(instance, filename):
+	return 'files/{0}/images/{1}'.format(instance.uid, filename)
+class TeacherImageManager(models.Manager):
+	def get_by_natural_key(self, uid, file):
+		return self.get(uid=uid)
+class TeacherImage(models.Model):
+	objects = TeacherImageManager()
+	uid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	file = models.FileField(upload_to=teacher_image_path)
+	def natural_key(self):
+		return (self.uid, self.file.url)
+	class Meta:
+		unique_together = (('uid', 'file'))
 class Teacher(models.Model):
-	tchr_ID = models.AutoField(primary_key=True)
-	tchr_First_Name = models.CharField(max_length=30)
-	tchr_Last_Name = models.CharField(max_length=30)
-	tchr_Father_Name = models.CharField(max_length=30)
-	tchr_Email = models.CharField(max_length=100) # check length and datatype
-	tchr_NID = models.CharField(max_length=30) # can be IntegerField, but some uses Jold Number and Safha Number
-	tchr_Nationality = models.CharField(max_length=30)
-	tchr_Business_Ph = models.IntegerField(default=0)
-	tchr_Home_Ph = models.IntegerField(default=0)
-	tchr_Mobile_No = models.IntegerField(default=0)
-	tchr_Cur_Add_VillorDist = models.CharField(max_length=30)
-	tchr_Cur_Add_Province = models.CharField(max_length=30)
-	tchr_Cur_Add_Country = models.CharField(max_length=30)
-	tchr_Prmnt_Add_VillorDist = models.CharField(max_length=30)
-	tchr_Prmnt_Add_Province = models.CharField(max_length=30)
-	tchr_Prmnt_Add_Country = models.CharField(max_length=30)
-	tchr_Faculty_ID = models.IntegerField(default=0) # using number will be okay?
-	tchr_Faculty_Type = models.CharField(max_length=30)
-	tchr_Department = models.CharField(max_length=30)
-	tchr_Office = models.CharField(max_length=30)
-	tchr_DOB = models.DateField(null=True)
-	tchr_DOH = models.DateField(null=True)
-	tchr_Salary = models.DecimalField(max_digits=7, decimal_places=2) # check datatype 
-	tchr_Level_Degree = models.CharField(max_length=50)
-	tchr_Focus_Area = models.CharField(max_length=200)
-	tchr_School_ProgName = models.CharField(max_length=100)
-	tchr_Emg_C_Name = models.CharField(max_length=30)
-	tchr_Emg_C_PhNo1 = models.IntegerField(default=0)
-	tchr_Emg_C_PhNo2 = models.IntegerField(default=0)
-	tchr_Emg_C_Relationship = models.CharField(max_length=30)
-	tchr_MI_Blood_Group = models.CharField(max_length=3)
-	tchr_MI_Allergies = models.CharField(max_length=200)
-	tchr_Leave_Date = models.DateField(null=True)
-	tchr_Leave_Reason = models.CharField(max_length=200)
-	tchr_Leave_ChkLiabilites = models.CharField(max_length=200)
+	MALE = 'M'
+	FEMALE = 'F'
+	GENDER_CHOICES = ((MALE, 'MALE'), (FEMALE, 'FEMALE'))
+	ISLAM = 'I'
+	HINDUISM = 'H'
+	CHRISTIANITY = 'C'
+	RELIGION_CHOICES = ((ISLAM, 'ISLAM'), (HINDUISM, 'HINDUISM'), (CHRISTIANITY, 'CHRISTIANITY'))
+	# General Info
+	utchrid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	image = models.ForeignKey(TeacherImage, on_delete=models.SET_NULL, null=True)
+	tchr_faculty_id = models.CharField(max_length=10) # using number will be okay?
+	tchr_firstname = models.CharField(max_length=50)
+	tchr_lastname = models.CharField(max_length=50, null=True)
+	tchr_fname = models.CharField(max_length=50)
+	tchr_gender = models.CharField(max_length=2, choices=GENDER_CHOICES, default=FEMALE)
+	tchr_nationality = models.CharField(max_length=50) 
+	tchr_nid_pass = models.CharField(max_length=50) # can be IntegerField, but some uses Jold Number and Safha Number
+	tchr_religion = models.CharField(max_length=2, choices=RELIGION_CHOICES, default=ISLAM)
+	tchr_business_ph = models.CharField(max_length=15, null=True)
+	tchr_home_ph = models.CharField(max_length=15, null=True)
+	tchr_mobile_no = models.CharField(max_length=15)
+	tchr_email = models.CharField(max_length=70, null=True)
+	# Current and Prmnt Address
+	tchr_cur_add_villordist = models.CharField(max_length=50, null=True)
+	tchr_cur_add_province = models.CharField(max_length=50)
+	tchr_cur_add_country = models.CharField(max_length=50)
+	tchr_prmnt_add_villordist = models.CharField(max_length=50, null=True)
+	tchr_prmnt_add_province = models.CharField(max_length=50)
+	tchr_prmnt_add_country = models.CharField(max_length=50)
+	# Department
+	tchr_faculty_type = models.CharField(max_length=50)
+	tchr_department = models.CharField(max_length=50)
+	tchr_office_branch = models.CharField(max_length=70)
+	tchr_dob = models.DateField()
+	tchr_doh = models.DateField()
+	tchr_salary = models.DecimalField(max_digits=7, decimal_places=2) # check datatype 
+	tchr_level_degree = models.CharField(max_length=100)
+	tchr_focus_area = models.CharField(max_length=200 , null=True)
+	tchr_school_progname = models.CharField(max_length=100, null=True)
+	# Emg Contacts
+	tchr_emg_c_name = models.CharField(max_length=50 , null=True)
+	tchr_emg_c_phno1 = models.CharField(max_length=15, null=True)
+	tchr_emg_c_phno2 = models.CharField(max_length=15, null=True)
+	tchr_emg_c_relationship = models.CharField(max_length=50, null=True)
+	# Medical Info
+	tchr_blood_group = models.CharField(max_length=3, null=True)
+	tchr_allergies = models.CharField(max_length=200 , null=True)
+	# resign
+	tchr_resign_date = models.DateField(null=True)
+	tchr_resign_reason = models.CharField(max_length=200, null=True)
+	tchr_resign_chkliabilites = models.CharField(max_length=200, null=True)
+
+
+def teacher_doc_path(instance, filename):
+	return 'files/{0} [{1}]/docs/{2}'.format(instance.teacher.tchr_fname, instance.teacher.uid, filename)
+
+class TeacherDoc(models.Model):
+	uid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	teacher = models.ForeignKey(Teacher)
+	file = models.FileField(upload_to=teacher_doc_path)
+
+
+@receiver(post_delete, sender=Teacher)
+def delete_teacher_image(sender, **kwargs):
+	try:
+		image_id = kwargs['instance'].image.uid
+		image = TeacherImage.objects.get(uid=image_id)
+		image.delete()
+	except Exception as e:
+		print e

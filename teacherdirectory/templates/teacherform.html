@@ -1,0 +1,371 @@
+{% load staticfiles %}
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Ideal School</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="{% static 'teacherdirectory/apple-touch-icon.png' %}" />
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="{% static 'teacherdirectory/css/normalize.css' %}" />
+        <link rel="stylesheet" href="{% static 'teacherdirectory/css/main.css' %}" />
+
+        <!-- external  -->
+        <link rel="stylesheet" href="{% static 'teacherdirectory/css/vendor/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'teacherdirectory/css/vendor/bootstrap.techie.css' %}">
+        <link rel="stylesheet" href="{% static 'teacherdirectory/css/vendor/font-awesome.min.css' %}">
+        
+        <!-- <link rel="stylesheet" href="{% static "teacherdirectory/css/vendor/kendo.default.css" %}"> -->
+        <link rel="stylesheet" href="{% static 'teacherdirectory/css/vendor/kendo.common-bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'teacherdirectory/css/vendor/kendo.bootstrap.min.css' %}">
+        <!-- <link rel="stylesheet" href="{% static "teacherdirectory/css/vendor/kendo.default.mobile.css" %}"> -->
+
+        <script src="{% static 'teacherdirectory/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <script id="fileTemplate" type="text/x-kendo-template">
+          <!-- <div class='file-wrapper'>
+              <span class='image-view' id="image-wrapper"><img name="image" data-bind="attr:{ src:imageUrl  }" src=""></span>
+          </div> -->
+          <strong class="k-upload-status">
+              <button type='button' class='k-upload-action'></button>
+              <button type='button' class='k-upload-action'></button>
+          </strong>
+          <span class='k-progress'></span>
+        </script>
+        <!-- Add your site or application content here -->
+        <!-- grid popup editor template -->
+        <script id="popup-editor" type="text/x-kendo-template">
+          <div id="editor-content-container">
+            <div class="row col-lg-12 row-box">
+              <div class="col-lg-6 section-box">
+                <div class="k-edit-label"><label for="image-field">Image</label></div>
+                <div class="k-edit-field image-field"><img src="" data-bind="attr:{src: imageUrl}"></div>
+                <div class="k-edit-label"><label for="files">Upload</label></div>
+                <div class="k-edit-field"><input name="files" id="files" type="file"/></div>
+                <div class="k-edit-label"><label for="tchr_faculty_id">Faculty ID</label></div>
+                <div class="k-edit-field"><input class="k-input k-textbox" name="tchr_faculty_id" required="required" data-bind="value:tchr_faculty_id" type="text"></div>
+              </div>
+
+              <div class="col-lg-6 section-box">
+                <!-- row 1 column 2 -->
+              </div>
+            </div>
+            <div id="tabstrip" class="col-lg-12">
+              <ul>
+                  <li id="tab1">Personal Info</li>
+                  <li id="tab2">Contact</li>
+                  <li id="tab3">Department</li>
+                  <li id="tab4">Emergency Info</li>
+                  <li id="tab5">Medical Info</li>
+                  <li id="tab6">Resign</li>
+              </ul>
+              <!-- tab 1 personal info -->
+              <div>
+                <div class="row col-lg-12 row-box">
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="tchr_firstname">First Name</label></div>
+                    <div data-container-for="tchr_firstname" class="k-edit-field"><input class="k-input k-textbox" name="tchr_firstname" required="required" data-bind="value:tchr_firstname" type="text"></div>
+                    <div class="k-edit-label"><label for="tchr_lastname">Last Name</label></div>
+                    <div data-container-for="tchr_lastname" class="k-edit-field"><input class="k-input k-textbox" name="tchr_lastname"data-bind="value:tchr_lastname" type="text"></div>
+
+                    <div class="k-edit-label"><label for="tchr_fname">Father Name</label></div>
+                    <div data-container-for="tchr_fname" class="k-edit-field"><input class="k-input k-textbox" name="tchr_fname" data-bind="source: student, value:tchr_fname" type="text"></div>
+                    <div class="k-edit-label"><label for="tchr_gender">Gender</label></div>
+                    <div data-container-for="tchr_gender" class="k-edit-field">
+                      <select id="gender-select" class="" data-bind="value:tchr_gender">
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="tchr_nationality">Nationality</label></div>
+                    <div data-container-for="tchr_nationality" class="k-edit-field">
+                      <select id="nationality-select" class="" data-bind="value:tchr_nationality">
+                      </select>
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_nid_pass">National ID</label></div>
+                    <div data-container-for="tchr_nid_pass" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:tchr_nid_pass" />
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_religion">Religion</label></div>
+                    <div data-container-for="tchr_religion" class="k-edit-field">
+                      <select id="religion-select" class="" data-bind="value:tchr_religion">
+                      </select>
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_dob">'Date' of Birth</label></div>
+                    <div data-container-for="tchr_dob" class="k-edit-field">
+                      <input id="dob-picker" data-bind="value:tchr_dob" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- tab 2 contact -->
+              <div>
+                <div class="row col-lg-12 row-box">
+                <div class="col-lg-6 section-box">
+                <div class="k-edit-label"><label for="tchr_business_ph">Business Phone</label></div>
+                <div data-container-for="tchr_business_ph" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_business_ph" />
+                </div>
+                <div class="k-edit-label"><label for="tchr_home_ph">Home Phone</label></div>
+                <div data-container-for="tchr_home_ph" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_home_ph" />
+                </div>
+                <div class="k-edit-label"><label for="tchr_mobile_no">Moblie No</label></div>
+                <div data-container-for="tchr_mobile_no" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_mobile_no" />
+                </div>
+                <div class="k-edit-label"><label for="tchr_email">Email</label></div>
+                <div data-container-for="tchr_email" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_email" />
+                </div>
+
+                </div>
+                <div class="col-lg-6 section-box">
+                <div class="k-edit-label"><label for="tchr_cur_add_villordist">Village/Nahia</label></div>
+                <div data-container-for="tchr_cur_add_villordist" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_cur_add_villordist" />
+                </div>
+                <div class="k-edit-label"><label for="tchr_cur_add_province">Province</label></div>
+                <div data-container-for="tchr_cur_add_province" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_cur_add_province" />
+                </div>
+                <div class="k-edit-label"><label for="tchr_cur_add_country">Country</label></div>
+                <div data-container-for="tchr_cur_add_country" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_cur_add_country" />
+                </div>
+                <div class="k-edit-label"><label for="tchr_prmnt_add_villordist">P Village/Nahia</label></div>
+                <div data-container-for="tchr_prmnt_add_villordist" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_prmnt_add_villordist" />
+                </div>
+                <div class="k-edit-label"><label for="tchr_prmnt_add_province">P Province</label></div>
+                <div data-container-for="tchr_prmnt_add_province" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_prmnt_add_province" />
+                </div>
+                <div class="k-edit-label"><label for="tchr_prmnt_add_country">P Country</label></div>
+                <div data-container-for="tchr_prmnt_add_country" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_prmnt_add_country" />
+                </div>
+                </div>
+              </div>
+              </div>
+
+              <!-- tab 3 Department -->
+              <div>
+                <div class="row col-lg-12 row-box">
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="tchr_faculty_type">Faculty Type</label></div>
+                    <div data-container-for="tchr_faculty_type" class="k-edit-field"><input class="k-input k-textbox" name="tchr_faculty_type" data-bind="value:tchr_faculty_type" type="text"></div>
+
+                    <div class="k-edit-label"><label for="tchr_department">Department</label></div>
+                    <div data-container-for="tchr_department" class="k-edit-field"><input class="k-input k-textbox" name="tchr_department"data-bind="value:tchr_department" type="text"></div>
+
+                    <div class="k-edit-label"><label for="tchr_office_branch">Office/Branch</label></div>
+                    <div data-container-for="tchr_office_branch" class="k-edit-field"><input class="k-input k-textbox" name="tchr_office_branch" data-bind="source: teacher, value:tchr_office_branch" type="text"></div>
+                    <div class="k-edit-label"><label for="tchr_doh">Date of Hire</label></div>
+                    <div data-container-for="tchr_doh" class="k-edit-field">
+                      <input id="dob-picker" data-bind="value:tchr_doh" />
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="tchr_salary">Salary</label></div>
+                    <div data-container-for="tchr_salary" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:tchr_salary" />
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_level_degree">Level/Degree</label></div>
+                    <div data-container-for="tchr_level_degree" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:tchr_level_degree" />
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_focus_area">Focus Area</label></div>
+                    <div data-container-for="tchr_focus_area" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:tchr_focus_area">
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_school_progname">School/Program Name</label></div>
+                    <div data-container-for="tchr_school_progname" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:tchr_school_progname" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- tab 4 emergency contact -->
+              <div>
+                <div class="row col-lg-12 row-box">
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="tchr_emg_c_name">Contact Name</label></div>
+                    <div data-container-for="tchr_emg_c_name" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:tchr_emg_c_name" />
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_emg_c_phno1">Phone primary</label></div>
+                    <div data-container-for="tchr_emg_c_phno1" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:tchr_emg_c_phno1" />
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_emg_c_phno2">Phone secondary</label></div>
+                    <div data-container-for="tchr_emg_c_phno2" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:tchr_emg_c_phno2" />
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_emg_c_relationship">Relation</label></div>
+                    <div data-container-for="etchr_emg_c_relationship" class="k-edit-field">
+                      <input class="k-input k-textbox" data-bind="value:tchr_emg_c_relationship" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- tab 5 medical info -->
+              <div>
+                <div class="k-edit-label"><label for="tchr_blood_group">Blood Group</label></div>
+                <div data-container-for="tchr_blood_group" class="k-edit-field">
+                  <input class="k-input k-textbox" data-bind="value:tchr_blood_group" />
+                </div>
+                <div class="k-edit-label"><label for="tchr_allergies">Allergies</label></div>
+                <div data-container-for="tchr_allergies" class="k-edit-field">
+                  <textarea class="k-input k-textbox" data-bind="value:tchr_allergies" /></textarea>
+                </div>
+              </div>
+              <!-- tab 6 Resignation info -->
+              <div>
+                <div class="row row-box">
+                  <div class="col-lg-6 section-box">
+                    <div class="k-edit-label"><label for="tchr_resign_date">Resignation Date</label></div>
+                    <div data-container-for="tchr_resign_date" class="k-edit-field">
+                      <input id="transfered_in_date-picker" data-bind="value:tchr_resign_date" />
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_resign_reason">Reason</label></div>
+                    <div data-container-for="tchr_resign_reason" class="k-edit-field">
+                      <input data-bind="value:tchr_resign_reason" class="k-input k-textbox" />
+                    </div>
+                    <div class="k-edit-label"><label for="tchr_resign_chkliabilites">Liabilities</label></div>
+                    <div data-container-for="tchr_resign_chkliabilites" class="k-edit-field">
+                      <input data-bind="value:tchr_resign_chkliabilites" class="k-input k-textbox" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </script> <!-- /popup editor template -->
+
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img src="{% static 'teacherdirectory/img/ideallogo.png' %}" alt="Ideal School">
+              </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="dropdown active">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Directory <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/students/">Students</a></li>
+                    <li><a href="/teachers/">Teachers</a></li>
+                    <li><a href="/staff/">Staff</a></li>
+                  </ul>
+                </li>
+                <li class=""><a href="#">Classes<span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="#">Organizer<span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="#">Guardians<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-user"></i>Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <!-- <form class="navbar-form navbar-left">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form> -->
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user"></span> Tor <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Profile <i class="fa fa-user"></i></a></li>
+                    <li><a href="#">Preferences <i class="fa fa-cogs"></i></a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Logout <i class="fa fa-sign-out"></i></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <ul class="breadcrumb breadcrumb-light breadcrumb-divider-middot">
+          <li><a href="#">Home</a> </li>
+          <li><a href="#">Directory</a> </li>
+          <li class="active"><a href="/teachers/teacherdata/">Teachers</a></li>
+        </ul>
+
+        <div class="row content">
+          <!-- sidenav -->
+          <div class="col-lg-2 sidenav">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+                  <li class="active"><a href="#">Personal Info</a></li>
+                  <li><a href="#">Academic Record</a></li>
+                  <li><a href="#">Files</a></li>
+                </ul>
+              </div>
+            </div>
+          </div> <!-- /.sidenav -->
+
+        <div class="col-lg-10 mainpanel">
+            <!-- <div class="panel panel-default">
+              <div class="panel-body"> -->
+                <div class="demo-section k-content wide">
+                  <div id="main-grid"></div>
+                </div>
+              <!-- </div>
+            </div> -->
+          </div>
+        </div>
+
+        <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+        <!--<script>window.jQuery || document.write('<script src="{% static "studentdirectory/js/vendor/jquery-1.12.0.min.js" %}"><\/script>')</script>-->
+        <script src="{% static 'teacherdirectory/js/vendor/jquery-1.12.0.min.js' %}"></script>
+        <script src="{% static 'teacherdirectory/js/plugins.js' %}"></script>
+        <script src="{% static 'teacherdirectory/js/main.js' %}"></script>
+
+        <!-- external -->
+        <script src="{% static 'teacherdirectory/js/vendor/bootstrap.min.js' %}"></script>
+        <script src="{% static 'teacherdirectory/js/vendor/kendo.all.min.js' %}"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>

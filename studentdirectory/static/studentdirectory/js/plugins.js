@@ -79,7 +79,7 @@ $(function(){
                 dataType: "json"
             },
             create: {
-                url: '/students/create/',
+                url: '/tstudents/create/',
                 type: 'post',
                 dataType: "json"
             },
@@ -222,9 +222,9 @@ $(function(){
         height: 550,
         toolbar: ["create"],
         columns: [
-            { field:"roll_no", title: "Roll No." },
+            { field:"roll_no", title: "Roll No" },
             { field: "name", title:"Name" },
-            { field: "f_name", title:"Father's Name" },
+            { field: "f_name", title:"Father Name" },
             { field: "dob", title: "Date of Birth"},
             { command: ["edit", "destroy"], title: "&nbsp;"}],
         messages: {
@@ -236,7 +236,7 @@ $(function(){
             mode:"popup",
             template: kendo.template($('#popup-editor').html()),
             window: {
-                title: 'Student details',
+                title: 'student details',
                 actions: ['Maximize', 'Close'], 
                 width: '70%'
             }
