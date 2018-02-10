@@ -17,13 +17,15 @@
         <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/bootstrap.techie.css' %}">
         <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/font-awesome.min.css' %}">
-        <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/kendo.common.css' %}">
+
+        <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/kendo.common-bootstrap.min.css' %}">
         <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.css" %}"> -->
-        <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/kendo.custom.css' %}">
+        <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/kendo.bootstrap.min.css' %}">
         <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.mobile.css" %}"> -->
 
         <script src="{% static 'studentdirectory/js/vendor/modernizr-2.8.3.min.js' %}"></script>
     </head>
+    
     <body>
         <!--[if lt IE 8]
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -261,9 +263,9 @@
                     <li><a href="/staff/">Staff</a></li>
                   </ul>
                 </li>
-                <li class=""><a href="#">Classes<span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="/classes/">Classes<span class="sr-only">(current)</span></a></li>
                 <li class=""><a href="#">Organizer<span class="sr-only">(current)</span></a></li>
-                <li class=""><a href="#">Guardians<span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="/staff/parents/">Guardians<span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

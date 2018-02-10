@@ -73,7 +73,7 @@ class Staff(models.Model):
 
 
 def staff_doc_path(instance, filename):
-	return 'files/{0} [{1}]/docs/{2}'.format(instance.staff.firstname, instance.staff.uid, filename)
+	return 'files/{0} [{1}]/docs/{2}'.format(instance.staff.firstname, instance.staff.ustid, filename)
 
 class StaffDoc(models.Model):
 	uid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

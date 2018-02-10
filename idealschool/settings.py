@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'studentdirectory',
     'teacherdirectory',
-    'staffdirectory'
+    'staffdirectory',
+    'classesdirectory'
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,7 @@ TEMPLATES = [
             'studentdirectory/templates',
             'teacherdirectory/templates',
             'staffdirectory/templates',
+            'classesdirectory/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

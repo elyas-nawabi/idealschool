@@ -7,7 +7,7 @@ from django.template import loader
 from django.views import generic
 from django.views.generic.edit import CreateView
 from django.core import serializers
-from .models import Staff, StaffImage
+from .models import Staff, StaffImage, StaffDoc
 
 import json
 from django.views.decorators.csrf import csrf_exempt
@@ -91,5 +91,66 @@ def image(request):
 		return HttpResponse(status=500)
 	return HttpResponse(json.dumps({'sucess': True, 'url': image.file.url, 'pk': image.uid.hex}))
 
+#parents design page. move to parents directory
 def parents(request):
 	return render(request, 'parents.html')
+
+
+
+#documents views for staff
+def upload_document(request):
+	#raise 405 on non-ajax requests
+	if request.method != 'POST':
+		return HttpResponse(status=405)
+	staff_ustid = request.POST.dict()['id']
+	#print teacher_utchrid
+	try:
+		staff = Staff.objects.get(ustid=staff_ustid)
+	except Staff.DoesNotExist as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)
+	try:
+		doc = StaffDoc(file=request.FILES['files'], staff=staff)
+		doc.save()
+	except Exception as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)
+	return HttpResponse()
+
+def read_document(request):
+	#raise 405 on non-ajax requests
+	if not request.is_ajax():
+		return HttpResponse(status=405)
+	staff_ustid = request.GET.dict()['id']
+	#print teacher_utchrid
+	try:
+		staff = Staff.objects.get(ustid=staff_ustid)
+	except StaffDoc.DoesNotExist as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)
+
+	docs = staff.staffdoc_set.all()
+	serialized_docs = serializers.serialize('json', docs)
+	return HttpResponse(serialized_docs)
+
+def delete_document(request):
+ 	#raise 405 on non-ajax requests
+	if not request.is_ajax() or request.method != 'POST':
+		return HttpResponse(status=405)
+	print request.POST.dict()
+	document_id = request.POST.dict()['id']
+	try:
+		doc = StaffDoc.objects.get(uid=document_id)
+		#delete file
+		doc.file.delete()
+		#delete model object
+		doc.delete()
+	except Exception as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)
+	return HttpResponse(json.dumps({}), status=200)
+
+def download_document(request):
+	#raise 405 on non-ajax requests
+	if not request.is_ajax() or request.method != 'POST':
+		return HttpResponse(status=405)
+	try:
+		doc = StaffDoc.objects.get(uid=document_id)
+	except StaffDoc.DoesNotExist as e:
+		return HttpResponse(json.dumps({'error': e.message}), status=500)

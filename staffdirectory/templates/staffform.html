@@ -25,22 +25,24 @@
 
         <script src="{% static 'staffdirectory/js/vendor/modernizr-2.8.3.min.js' %}"></script>
     </head>
+
     <body>
         <!--[if lt IE 8]
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <script id="fileTemplate" type="text/x-kendo-template">
-          <!-- <div class='file-wrapper'>
+          <!--<div class='file-wrapper'>
               <span class='image-view' id="image-wrapper"><img name="image" data-bind="attr:{ src:imageUrl  }" src=""></span>
-          </div> -->
+              </div> -->
           <strong class="k-upload-status">
               <button type='button' class='k-upload-action'></button>
               <button type='button' class='k-upload-action'></button>
           </strong>
-          <span class='k-progress'></span>
+              <span class='k-progress'></span>
         </script>
         <!-- Add your site or application content here -->
         <!-- grid popup editor template -->
+
         <script id="popup-editor" type="text/x-kendo-template">
           <div id="editor-content-container">
             <div class="row col-lg-12 row-box">
@@ -51,32 +53,36 @@
                 <div class="k-edit-field"><input name="files" id="files" type="file"/></div>
                 <div class="k-edit-label"><label for="staff_id">Staff ID</label></div>
                 <div class="k-edit-field"><input class="k-input k-textbox" name="staff_id" required="required" data-bind="value:staff_id" type="text"></div>
-              </div>
+                </div>
 
-              <div class="col-lg-6 section-box">
+                <div class="col-lg-6 section-box">
                 <!-- row 1 column 2 -->
-              </div>
-            </div>
-            <div id="tabstrip" class="col-lg-12">
-              <ul>
+                </div>
+                </div>
+                <div id="tabstrip" class="col-lg-12">
+                 <ul>
                   <li id="tab1">Personal Info</li>
                   <li id="tab2">Contact</li>
                   <li id="tab3">Department</li>
                   <li id="tab4">Emergency Info</li>
                   <li id="tab5">Medical Info</li>
                   <li id="tab6">Resign</li>
-              </ul>
+                  <li id="tab7">Documents</li>
+                 </ul>
+
               <!-- tab 1 personal info -->
-              <div>
+                <div>
                 <div class="row col-lg-12 row-box">
                   <div class="col-lg-6 section-box">
                     <div class="k-edit-label"><label for="firstname">First Name</label></div>
                     <div data-container-for="firstname" class="k-edit-field"><input class="k-input k-textbox" name="firstname" required="required" data-bind="value:firstname" type="text"></div>
+
                     <div class="k-edit-label"><label for="lastname">Last Name</label></div>
                     <div data-container-for="lastname" class="k-edit-field"><input class="k-input k-textbox" name="lastname"data-bind="value:lastname" type="text"></div>
 
                     <div class="k-edit-label"><label for="fname">Father Name</label></div>
                     <div data-container-for="fname" class="k-edit-field"><input class="k-input k-textbox" name="fname" data-bind="source: staff, value:fname" type="text"></div>
+                    
                     <div class="k-edit-label"><label for="gender">Gender</label></div>
                     <div data-container-for="gender" class="k-edit-field">
                       <select id="gender-select" class="" data-bind="value:gender">
@@ -246,6 +252,20 @@
                   </div>
                 </div>
               </div>
+              <!-- tab 7 files -->
+              <div>
+                <div class="row row-box">
+                  <div class="col-lg-6 section-box">
+                    <div id="filesGridView"></div>
+                    <!-- <div id="fileListPager" class="k-pager-wrap"></div> -->
+                  </div>
+                  <div class="col-lg-6 section-box">
+                    <div class="">
+                      <input name="files" id="documentUpload" type="file"></input>
+                    </div>
+                  </div>
+                  
+                </div>
             </div>
           </div>
         </script> <!-- /popup editor template -->

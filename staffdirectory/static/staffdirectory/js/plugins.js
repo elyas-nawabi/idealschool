@@ -55,7 +55,12 @@ $(function(){
             }
         }
     });
-
+    function downloadDoc(e){
+        e.preventDefault();
+        //get curr
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        window.open(dataItem.url);
+    }
     //datasource for grid
     var gridDataSource = new kendo.data.DataSource({
         transport: {
@@ -256,8 +261,11 @@ $(function(){
             e.container.find("#tabstrip").kendoTabStrip().data('kendoTabStrip').activateTab('#tab1');
 
             //
+            var itemID, docUploadEnabled = false;
             if(!e.model.isNew()){
-
+                itemID = e.model.id;
+                //disable document upload for new record
+                docUploadEnabled = true;
             }
             //kendo async file upload
             e.container.find("#files").kendoUpload({
@@ -265,6 +273,9 @@ $(function(){
                     saveUrl: "/staff/upload/",
                     removeUrl: "/staff/remove/",
                     autoUpload: true,
+                },
+                validation: {
+                    allowedExtensions: [".jpg", ".jpeg", ".png", ".bmp", ".gif"]
                 },
                 upload: function (e){
                     // insert csrftoken into form before upload
@@ -289,10 +300,8 @@ $(function(){
                     e.data = {pk: fileId};
                 }, 
                 multiple: false,
-                validation: {
-                    allowedExtensions: [".jpg", ".png"],
-                    // maxFileSize: 900000,
-                    // minFileSize: 300000
+                localization: {
+                    dropFilesHere: ""
                 }
             });
             //gender select
@@ -352,6 +361,156 @@ $(function(){
             e.c
             e.container.find('input#resign_date-picker').kendoDatePicker({
                 format: "yyyy-MM-dd"
+            });
+
+            e.container.find('div#filesGridView').kendoGrid({
+                dataSource: new kendo.data.DataSource({
+                    transport: {
+                        read: function(options){
+                            //set files grid to empty (i.e. {}) for new records
+                            if (itemID == undefined)
+                                return options.success({});
+                            $.ajax({
+                                url: '/staff/read-docs',
+                                dataType: 'json',
+                                data: {
+                                    id: itemID
+                                },
+                                success: function(response){
+                                    options.success(response);
+                                }, 
+                                error: function(response){
+                                    alert(response.message);
+                                }
+                            });
+                        }, 
+                        update: function(e){
+
+                        },
+                        destroy: function(e){
+
+                        },
+                        create: function(e){
+
+                        },
+                    }, 
+                    parameterMap: function(data, operation){
+                        return {id: itemID};
+                    },
+                    schema:{
+                        parse: function(response){
+                            var records =[];
+                            for (var i = 0; i < response.length; i++){
+                                var fileName = response[i].fields.file.split('/')[response[i].fields.file.split('/').length - 1];
+                                var fileType = fileName.split('.')[fileName.split('.').length - 1];
+                                var record = {
+                                    id: response[i].pk,
+                                    url: response[i].fields.file,
+                                    fileName: fileName, 
+                                    fileType: fileType
+                                }
+                                records.push(record);
+                            }
+                            return records;
+                        }
+                    }, 
+                    models:{
+                        id: "id", 
+                        fields:{
+                            fileName: {editable:false}, 
+                            fileType: { editable: false}
+                        }
+                    }
+                }),
+                // pageable: true, 
+                sortable: true, 
+                height: 200,
+                // toolbar: ["create"],
+                columns: [
+                    {field: 'fileName', title: "File Name"},
+                    {command: [
+                            {
+                                name: 'download',
+                                text: '',
+                                click: downloadDoc,
+                                // iconClass:'k-icon k-i-view',
+                                // width:10,
+                                template: "<a class='k-grid-download k-button-icontext' href='\\#'><span class='k-icon k-i-preview'></span></a>"
+                            },
+                            {
+                                name: 'destroy',
+                                text: '',
+                                // iconClass: 'k-icon k-i-delete',
+                                // width:10,
+                                template: "<a class='k-grid-delete k-button-icontext' href='\\#'><span class='k-icon k-i-delete'></span></a>"
+                            }
+                        ], 
+                        title: " ", 
+                        width: 60
+                    }
+                ],
+                messages: {
+                    commands: {
+                        edit: "view"
+                    }
+                },
+                editable: {
+                    mode: 'inline'
+                },
+                remove: function(e){
+                    $.ajax({
+                        url: '/staff/delete-doc',
+                        dataType: 'json',
+                        type: 'post',
+                        data: {
+                            id: e.model.id
+                        },
+                        success: function(response){
+                            return;
+                        }, 
+                        error: function(response){
+                            alert(response.message);
+                        }
+                    });
+                },
+            });
+            e.container.find('#documentUpload').kendoUpload({
+                async: {
+                    saveUrl: "/staff/upload-doc",
+                    removeUrl: "/staff/remove-doc",
+                    autoUpload: true,
+                },
+                upload: function (event){
+                    // insert csrftoken into form before upload
+                    event.data = {
+                      csrfmiddlewaretoken: csrftoken,
+                      //insert student id
+                      id: e.model.id 
+                    }
+                },
+                success: function (data){
+                    //refresh files table
+                    e.container.find('#filesGridView')
+                    .data('kendoGrid')
+                    .dataSource.read();
+                }, 
+                remove: function (event) {
+                    event.preventDefault();
+                    //remove uploaded file from UI
+                    e.container.find('#documentUpload')
+                    .data('kendoUpload')
+                    .clearFileByUid(event.files[0].uid);
+                }, 
+                multiple: true,
+                validation: {
+                    allowedExtensions: [".jpg", ".png", ".bmp", ".gif", ".doc", ".docx", ".xls", "xlsx", ".pdf", ".jpeg", ".zip"],
+                    // maxFileSize: 900000,
+                    // minFileSize: 300000
+                }, 
+                localization: {
+                    dropFilesHere: "Drop files here to upload"
+                }, 
+                enabled: docUploadEnabled
             });
         },
         pageable:{

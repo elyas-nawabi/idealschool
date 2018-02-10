@@ -55,7 +55,12 @@ $(function(){
             }
         }
     });
-
+    function downloadDoc(e){
+        e.preventDefault();
+        //get curr
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        window.open(dataItem.url);
+    }
     //datasource for grid
     var gridDataSource = new kendo.data.DataSource({
         transport: {
@@ -95,12 +100,12 @@ $(function(){
                     delete data.image;
                     data.image = image;
                     //convert date objects to string
-                    data.tchr_dob = kendo.toString(data.tchr_dob, "yyyy-MM-dd");
-                    data.tchr_doh = kendo.toString(data.tchr_doh, "yyyy-MM-dd");
-                    if (data.tchr_resign_date =="") {
-                        data.tchr_resign_date = data.tchr_resign_date ;
+                    data.dob = kendo.toString(data.dob, "yyyy-MM-dd");
+                    data.doh = kendo.toString(data.doh, "yyyy-MM-dd");
+                    if (data.resign_date =="") {
+                        data.resign_date = data.resign_date ;
                     }
-                    else {data.tchr_resign_date = kendo.toString(data.tchr_resign_date, "yyyy-MM-dd");}
+                    else {data.resign_date = kendo.toString(data.resign_date, "yyyy-MM-dd");}
                     
                     var result = {
                         pk: id,
@@ -114,13 +119,13 @@ $(function(){
                     //remove non-model fields
                     delete data['id'];
                     //convert date objects to string
-                    data.tchr_dob = kendo.toString(data.tchr_dob, "yyyy-MM-dd");
-                    data.tchr_doh = kendo.toString(data.tchr_doh, "yyyy-MM-dd");
+                    data.dob = kendo.toString(data.dob, "yyyy-MM-dd");
+                    data.doh = kendo.toString(data.doh, "yyyy-MM-dd");
 
-                    if (data.tchr_resign_date =="") {
-                        data.tchr_resign_date = data.tchr_resign_date ;
+                    if (data.resign_date =="") {
+                        data.resign_date = data.resign_date ;
                     }
-                    else {data.tchr_resign_date = kendo.toString(data.tchr_resign_date, "yyyy-MM-dd");}
+                    else {data.resign_date = kendo.toString(data.resign_date, "yyyy-MM-dd");}
                     //maintain natural key format
                     var image = [];
                     image.push(data.image[0]);
@@ -166,43 +171,43 @@ $(function(){
                         model:response[i].model,
                         image: image,
                         imageUrl: imageUrl,
-                        tchr_faculty_id: response[i].fields.tchr_faculty_id,
-                        tchr_firstname: response[i].fields.tchr_firstname,
-                        tchr_lastname: response[i].fields.tchr_lastname,
-                        tchr_fname: response[i].fields.tchr_fname,
-                        tchr_gender: response[i].fields.tchr_gender,
-                        tchr_nationality: response[i].fields.tchr_nationality,
-                        tchr_nid_pass: response[i].fields.tchr_nid_pass,
-                        tchr_religion: response[i].fields.tchr_religion,
-                        tchr_business_ph: response[i].fields.tchr_business_ph,
-                        tchr_home_ph: response[i].fields.tchr_home_ph,
-                        tchr_mobile_no: response[i].fields.tchr_mobile_no,
-                        tchr_email: response[i].fields.tchr_email,
-                        tchr_cur_add_villordist: response[i].fields.tchr_cur_add_villordist,
-                        tchr_cur_add_province: response[i].fields.tchr_cur_add_province,
-                        tchr_cur_add_country: response[i].fields.tchr_cur_add_country,
-                        tchr_prmnt_add_villordist: response[i].fields.tchr_prmnt_add_villordist,
-                        tchr_prmnt_add_province: response[i].fields.tchr_prmnt_add_province,
-                        tchr_prmnt_add_country: response[i].fields.tchr_prmnt_add_country,
-                        tchr_faculty_type: response[i].fields.tchr_faculty_type,
-                        tchr_department: response[i].fields.tchr_department, 
-                        tchr_office_branch: response[i].fields.tchr_office_branch, 
-                        tchr_dob: response[i].fields.tchr_dob, 
-                        tchr_doh: response[i].fields.tchr_doh,
-                        tchr_salary: response[i].fields.tchr_salary,
-                        tchr_level_degree: response[i].fields.tchr_level_degree,
-                        tchr_focus_area: response[i].fields.tchr_focus_area,
-                        tchr_school_progname: response[i].fields.tchr_school_progname,
-                        tchr_emg_c_name: response[i].fields.tchr_emg_c_name,
-                        tchr_emg_c_phno1: response[i].fields.tchr_emg_c_phno1,
-                        tchr_emg_c_phno2: response[i].fields.tchr_emg_c_phno2,
+                        faculty_id: response[i].fields.faculty_id,
+                        firstname: response[i].fields.firstname,
+                        lastname: response[i].fields.lastname,
+                        fname: response[i].fields.fname,
+                        gender: response[i].fields.gender,
+                        nationality: response[i].fields.nationality,
+                        nid_pass: response[i].fields.nid_pass,
+                        religion: response[i].fields.religion,
+                        business_ph: response[i].fields.business_ph,
+                        home_ph: response[i].fields.home_ph,
+                        mobile_no: response[i].fields.mobile_no,
+                        email: response[i].fields.email,
+                        cur_add_villordist: response[i].fields.cur_add_villordist,
+                        cur_add_province: response[i].fields.cur_add_province,
+                        cur_add_country: response[i].fields.cur_add_country,
+                        prmnt_add_villordist: response[i].fields.prmnt_add_villordist,
+                        prmnt_add_province: response[i].fields.prmnt_add_province,
+                        prmnt_add_country: response[i].fields.prmnt_add_country,
+                        faculty_type: response[i].fields.faculty_type,
+                        department: response[i].fields.department, 
+                        office_branch: response[i].fields.office_branch, 
+                        dob: response[i].fields.dob, 
+                        doh: response[i].fields.doh,
+                        salary: response[i].fields.salary,
+                        level_degree: response[i].fields.level_degree,
+                        focus_area: response[i].fields.focus_area,
+                        school_progname: response[i].fields.school_progname,
+                        emg_c_name: response[i].fields.emg_c_name,
+                        emg_c_phno1: response[i].fields.emg_c_phno1,
+                        emg_c_phno2: response[i].fields.emg_c_phno2,
                         emg_contact2_name: response[i].fields.emg_contact2_name,
-                        tchr_emg_c_relationship: response[i].fields.tchr_emg_c_relationship,
-                        tchr_blood_group: response[i].fields.tchr_blood_group,
-                        tchr_allergies: response[i].fields.tchr_allergies,
-                        tchr_resign_date: response[i].fields.tchr_resign_date,
-                        tchr_resign_reason: response[i].fields.tchr_resign_reason,
-                        tchr_resign_chkliabilites: response[i].fields.tchr_resign_chkliabilites,
+                        emg_c_relationship: response[i].fields.emg_c_relationship,
+                        blood_group: response[i].fields.blood_group,
+                        allergies: response[i].fields.allergies,
+                        resign_date: response[i].fields.resign_date,
+                        resign_reason: response[i].fields.resign_reason,
+                        resign_chkliabilites: response[i].fields.resign_chkliabilites,
                         
                     }
                     records.push(record);
@@ -212,8 +217,8 @@ $(function(){
             model: {
                 id: "id",
                 fields: {
-                    tchr_faculty_id: { editable: true, nullable: true },
-                    tchr_firstname: { validation: { required: true } },
+                    faculty_id: { editable: true, nullable: true },
+                    firstname: { validation: { required: true } },
                 }
             }
         }
@@ -227,10 +232,10 @@ $(function(){
         height: 550,
         toolbar: ["create"],
         columns: [
-            { field:"tchr_faculty_id", title: "Faculty ID" },
-            { field: "tchr_firstname", title:"First Name" },
-            { field: "tchr_lastname", title:"Last Name" },
-            { field: "tchr_department", title: "Department"},
+            { field:"faculty_id", title: "Faculty ID" },
+            { field: "firstname", title:"First Name" },
+            { field: "lastname", title:"Last Name" },
+            { field: "department", title: "Department"},
             { command: ["edit"], title: ""},
             { command: ["destroy"], title: ""}],
         messages: {
@@ -254,11 +259,17 @@ $(function(){
         },
         edit: function (e){
             //kendo tabstrip initialization
-            e.container.find("#tabstrip").kendoTabStrip().data('kendoTabStrip').activateTab('#tab1');
+            e.container.find("#tabstrip")
+            .kendoTabStrip()
+            .data('kendoTabStrip')
+            .activateTab('#tab1');
 
-            //
+            //get item id if it's not new
+            var itemID, docUploadEnabled = false;
             if(!e.model.isNew()){
-
+                itemID = e.model.id;
+                //disable document upload for new record
+                docUploadEnabled = true;
             }
             //kendo async file upload
             e.container.find("#files").kendoUpload({
@@ -267,13 +278,16 @@ $(function(){
                     removeUrl: "/teachers/remove/",
                     autoUpload: true,
                 },
+                validation: {
+                    allowedExtensions: [".jpg", ".jpeg", ".png", ".bmp", ".gif"]
+                },
                 upload: function (e){
                     // insert csrftoken into form before upload
                     e.data = {
                       csrfmiddlewaretoken: csrftoken
                     }
                 }, 
-                template: kendo.template($('#fileTemplate').html()),
+                //template: kendo.template($('#fileTemplate').html()),
                 success: function (data){
                     //display image
                     e.container.find('img').attr('src', data.response.url);
@@ -290,10 +304,8 @@ $(function(){
                     e.data = {pk: fileId};
                 }, 
                 multiple: false,
-                validation: {
-                    allowedExtensions: [".jpg", ".png"],
-                    // maxFileSize: 900000,
-                    // minFileSize: 300000
+                localization: {
+                    dropFilesHere: ""
                 }
             });
             //gender select
@@ -338,8 +350,8 @@ $(function(){
                         {'value': 'Pashaee', 'text': 'Pashaee'},
                         {'value': 'Noristani', 'text': 'Noristani'}, 
                         {'value': 'Imaq', 'text': 'Imaq'},
-                        {'value': 'Other', 'text': 'Qazalbash'},
-                        {'value': 'Uzbik', 'text': 'Other'} 
+                        {'value': 'Qazalbash', 'text': 'Qazalbash'},
+                        {'value': 'Other', 'text': 'Other'} 
                     ]
                 }
             });
@@ -353,7 +365,155 @@ $(function(){
             e.container.find('input#transfered_out_date-picker').kendoDatePicker({
                 format: "yyyy-MM-dd"
             });
+            e.container.find('div#filesGridView').kendoGrid({
+                dataSource: new kendo.data.DataSource({
+                    transport: {
+                        read: function(options){
+                            //set files grid to empty (i.e. {}) for new records
+                            if (itemID == undefined)
+                                return options.success({});
+                            $.ajax({
+                                url: '/teachers/read-docs',
+                                dataType: 'json',
+                                data: {
+                                    id: itemID
+                                },
+                                success: function(response){
+                                    options.success(response);
+                                }, 
+                                error: function(response){
+                                    alert(response.message);
+                                }
+                            });
+                        }, 
+                        update: function(e){
 
+                        },
+                        destroy: function(e){
+
+                        },
+                        create: function(e){
+
+                        },
+                    }, 
+                    parameterMap: function(data, operation){
+                        return {id: itemID};
+                    },
+                    schema:{
+                        parse: function(response){
+                            var records =[];
+                            for (var i = 0; i < response.length; i++){
+                                var fileName = response[i].fields.file.split('/')[response[i].fields.file.split('/').length - 1];
+                                var fileType = fileName.split('.')[fileName.split('.').length - 1];
+                                var record = {
+                                    id: response[i].pk,
+                                    url: response[i].fields.file,
+                                    fileName: fileName, 
+                                    fileType: fileType
+                                }
+                                records.push(record);
+                            }
+                            return records;
+                        }
+                    }, 
+                    models:{
+                        id: "id", 
+                        fields:{
+                            fileName: {editable:false}, 
+                            fileType: { editable: false}
+                        }
+                    }
+                }),
+                // pageable: true, 
+                sortable: true, 
+                height: 200,
+                // toolbar: ["create"],
+                columns: [
+                    {field: 'fileName', title: "File Name"},
+                    {command: [
+                            {
+                                name: 'download',
+                                text: '',
+                                click: downloadDoc,
+                                // iconClass:'k-icon k-i-view',
+                                // width:10,
+                                template: "<a class='k-grid-download k-button-icontext' href='\\#'><span class='k-icon k-i-preview'></span></a>"
+                            },
+                            {
+                                name: 'destroy',
+                                text: '',
+                                // iconClass: 'k-icon k-i-delete',
+                                // width:10,
+                                template: "<a class='k-grid-delete k-button-icontext' href='\\#'><span class='k-icon k-i-delete'></span></a>"
+                            }
+                        ], 
+                        title: " ", 
+                        width: 60
+                    }
+                ],
+                messages: {
+                    commands: {
+                        edit: "view"
+                    }
+                },
+                editable: {
+                    mode: 'inline'
+                },
+                remove: function(e){
+                    $.ajax({
+                        url: '/teachers/delete-doc',
+                        dataType: 'json',
+                        type: 'post',
+                        data: {
+                            id: e.model.id
+                        },
+                        success: function(response){
+                            return;
+                        }, 
+                        error: function(response){
+                            alert(response.message);
+                        }
+                    });
+                },
+            });
+            e.container.find('#documentUpload').kendoUpload({
+                async: {
+                    saveUrl: "/teachers/upload-doc",
+                    removeUrl: "/teachers/remove-doc",
+                    autoUpload: true,
+                },
+                upload: function (event){
+                    // insert csrftoken into form before upload
+                    event.data = {
+                      csrfmiddlewaretoken: csrftoken,
+                      //insert student id
+                      id: e.model.id 
+                    }
+                },
+                success: function (data){
+                    //refresh files table
+                    e.container.find('#filesGridView')
+                    .data('kendoGrid')
+                    .dataSource.read();
+                }, 
+                remove: function (event) {
+                    event.preventDefault();
+                    //remove uploaded file from UI
+                    e.container.find('#documentUpload')
+                    .data('kendoUpload')
+                    .clearFileByUid(event.files[0].uid);
+                }, 
+                multiple: true,
+                validation: {
+                    allowedExtensions: [".jpg", ".png", ".bmp", ".gif", ".doc", ".docx", ".xls", "xlsx", ".pdf", ".jpeg", ".zip"],
+                    // maxFileSize: 900000,
+                    // minFileSize: 300000
+                }, 
+                localization: {
+                    dropFilesHere: "Drop files here to upload"
+                }, 
+                enabled: docUploadEnabled
+            });
         },
         pageable:{
             refresh: true,
