@@ -187,15 +187,73 @@ div.row > div.mainpanel > .panel {
     height: 500px !important;
 }
 
+#editor-content-container div.row-box div.section-box {
+    box-sizing: border-box !important;
+    float: left;
+    margin-top: 15px;
+}
+.k-edit-form-container {
+    width: auto !important;
+}
+/*tabstrip inside popup winodw*/
+#editor-content-container > .k-tabstrip-wrapper > div#tabstrip {
+  background-color: #fff;
+  border-color: #fff;
+  background: #fff !important;
+}
+#editor-content-container > .k-tabstrip-wrapper > div#tabstrip:focus {
+  box-shadow: none;
+}
+.k-edit-label {
+  text-align: left !important;
+  width: 20% !important;
+}
+.k-edit-field {
+  float: left !important;
+}
+/*popup eidtor image*/
+div.image-field > img {
+  width: 150px;
+  height: auto;
+}
+#editor-content-container div.k-dropzone{
+  padding:2px;
+  background-color: #fff;
+}
 
-
-
-
-
-
-
-
-
+/*make file grid buttons small*/
+#filesGridView a.k-button.k-button-icontext.k-grid-download {
+    min-width : 0 !important;
+}
+#filesGridView a.k-button.k-button-icontext.k-grid-delete {
+    min-width : 0 !important;
+}
+/*#filesGridView {
+  color: blue !important;
+}*/
+/*remove alt-background color difference and hover background color*/
+#filesGridView th, #filesGridView tr.k-alt, #filesGridView tr.k-alt:hover, #filesGridView tr:hover {
+  background-color: #fff;
+}
+/*change link and hover colors*/
+#filesGridView a.k-grid-download, #filesGridView a.k-grid-delete {
+  color: #337ab7;
+}
+#filesGridView a.k-grid-download:hover, #filesGridView a.k-grid-delete:hover{
+  color: #23527c;
+}
+#editor-content-container div.k-dropzone > em{
+  display: inline;
+}
+#editor-content-container div.k-dropzone.k-dropzone-active {
+  /*background-color: transparent;*/
+  border: 1px dashed gray;
+}
+#editor-content-container div.k-dropzone.k-dropzone-active.k-dropzone-hovered {
+  /*background-color: transparent;*/
+  /*border: 1px solid #3299ff;*/
+  border: 1px solid #66E166;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

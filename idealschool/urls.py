@@ -13,11 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls.static import static
+from django.conf import settings
+from django.conf.urls import url, include
 from django.contrib import admin
 from studentdirectory import views
-
+from teacherdirectory import views
+from staffdirectory import views
+from classesdirectory import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index, name='index')
-]
+    #url(r'^$', views.index, name='index'),
+    url(r'^teachers/', include('teacherdirectory.urls'), name='teachers'),
+    url(r'^students/', include('studentdirectory.urls'), name='students'),
+    url(r'^staff/', include('staffdirectory.urls'), name='staff'),
+    url(r'^classes/', include('classesdirectory.urls'), name='classes')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

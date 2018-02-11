@@ -25,7 +25,7 @@ SECRET_KEY = '6w-0^k9^q_0nsxdin+udintacsrs0d3o+5u!w5j#+!+bii)v3_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.69.11.82', '172.16.68.1', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'studentdirectory'
+    'studentdirectory',
+    'teacherdirectory',
+    'staffdirectory',
+    'classesdirectory'
 ]
 
 MIDDLEWARE = [
@@ -57,6 +60,9 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             'studentdirectory/templates',
+            'teacherdirectory/templates',
+            'staffdirectory/templates',
+            'classesdirectory/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -121,3 +127,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/'
+MEDIA_ROOT = '/home/tor/idealschool/'

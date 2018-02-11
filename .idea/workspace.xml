@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="16b884ac-92c2-446d-bb90-9c63a1f0697a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/.editorconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/.gitattributes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/apple-touch-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/browserconfig.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/crossdomain.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/fontawesome-webfont.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/LANENAR_-demo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/LANENAR_-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/LANENAR_-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/LANENAR_-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/LANENAR_-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/specimen_files/LANENAR_-cleartype.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/specimen_files/easytabs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/specimen_files/grid_12-825-55-15.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/specimen_files/specimen_stylesheet.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/fonts/lane/stylesheet.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/normalize.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/editor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/imagebrowser.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/indeterminate.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/loading-image.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/loading_2x.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/markers.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/markers_2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/slider-h.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/slider-v.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/sprite_2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/sprite_kpi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/Default/sprite_kpi_2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/bootstrap.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/bootstrap.techie.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSans-Bold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSans-BoldOblique.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSans-ExtraLight.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSans-Oblique.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSans.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSansMono-Bold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSansMono-BoldOblique.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSansMono-Oblique.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSansMono.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSerif-Bold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSerif-BoldItalic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSerif-Italic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/DejaVuSerif.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/DejaVu/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/glyphs/KendoUIGlyphs.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/glyphs/KendoUIGlyphs.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/glyphs/KendoUIGlyphs.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/glyphs/KendoUIGlyphs.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/glyphs/WebComponentsIcons.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/glyphs/WebComponentsIcons.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/glyphs/WebComponentsIcons.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/fonts/glyphs/WebComponentsIcons.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/images/back.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/images/kendoui.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/images/kendoui.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/images/kendoui.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/images/wp8_icons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/images/wp8_inverseicons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/kendo.common-bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/kendo.common-bootstrap.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/kendo.common.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/kendo.common.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/kendo.custom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/kendo.custom.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/kendo.default.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/kendo.default.mobile.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/css/vendor/kendo.default.mobile.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/humans.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/img/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/img/ideallogo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/js/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/js/plugins.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/js/vendor/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/js/vendor/jquery-1.12.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/js/vendor/kendo.all.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/js/vendor/kendo.all.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/js/vendor/modernizr-2.8.3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/robots.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/tile-wide.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/static/studentdirectory/tile.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/templates/404.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/studentdirectory/templates/index.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/idealschool/settings.py" afterPath="$PROJECT_DIR$/idealschool/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/idealschool/urls.py" afterPath="$PROJECT_DIR$/idealschool/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/teacherdirectory/views.py" afterPath="$PROJECT_DIR$/teacherdirectory/views.py" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/idealschool/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding>
+                <element signature="e#645#687#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/teacherdirectory/templates/teacherdirectory/index.html" />
+        <option value="$PROJECT_DIR$/teacherdirectory/templates/teacherdirectory/wrosta.html" />
+        <option value="$PROJECT_DIR$/teacherdirectory/views.py" />
+        <option value="$PROJECT_DIR$/idealschool/urls.py" />
+        <option value="$PROJECT_DIR$/teacherdirectory/templates/teacherdirectory/teacherform.html" />
+        <option value="$PROJECT_DIR$/teacherdirectory/urls.py" />
+        <option value="$PROJECT_DIR$/idealschool/settings.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="57" />
+    <option name="y" value="16" />
+    <option name="width" value="1299" />
+    <option name="height" value="732" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="idealschool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="idealschool" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="idealschool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="idealschool" type="462c0819:PsiDirectoryNode" />
+              <item name="idealschool" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="idealschool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="idealschool" type="462c0819:PsiDirectoryNode" />
+              <item name="studentdirectory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="idealschool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="idealschool" type="462c0819:PsiDirectoryNode" />
+              <item name="teacherdirectory" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16b884ac-92c2-446d-bb90-9c63a1f0697a" name="Default" comment="" />
+      <created>1510750916615</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1510750916615</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="57" y="16" width="1321" height="780" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25373134" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970452" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/idealschool/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#645#687#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teacherdirectory/templates/teacherdirectory/teacherform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/studentdirectory/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teacherdirectory/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/studentdirectory/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teacherdirectory/templates/teacherdirectory/index.html" />
+    <entry file="file://$PROJECT_DIR$/teacherdirectory/templates/teacherdirectory/wrosta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="187" column="49" lean-forward="false" selection-start-line="187" selection-start-column="49" selection-end-line="187" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teacherdirectory/templates/teacherdirectory/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teacherdirectory/templates/teacherdirectory/teacherform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/idealschool/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/idealschool/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="59" column="29" lean-forward="false" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teacherdirectory/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teacherdirectory/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/idealschool/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#645#687#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
