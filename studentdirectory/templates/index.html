@@ -1,5 +1,4 @@
-{% load static %}
-<!doctype html>
+{% load staticfiles %}
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -8,26 +7,27 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="{% static "studentdirectory/apple-touch-icon.png" %}">
+        <link rel="apple-touch-icon" href="{% static 'studentdirectory/apple-touch-icon.png' %}" />
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="{% static "studentdirectory/css/normalize.css" %}">
-        <link rel="stylesheet" href="{% static "studentdirectory/css/main.css" %}">
+        <link rel="stylesheet" href="{% static 'studentdirectory/css/normalize.css' %}" />
+        <link rel="stylesheet" href="{% static 'studentdirectory/css/main.css' %}" />
 
         <!-- external  -->
-        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/bootstrap.min.css" %}">
-        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/bootstrap.techie.css" %}">
-        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/font-awesome.min.css" %}">
-        <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.common.css" %}"> -->
-        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.common-bootstrap.min.css" %}">
-        <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.bootstrap.min.css" %}">
-        <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.custom.css" %}"> -->
+        <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/bootstrap.techie.css' %}">
+        <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/font-awesome.min.css' %}">
+
+        <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/kendo.common-bootstrap.min.css' %}">
+        <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.css" %}"> -->
+        <link rel="stylesheet" href="{% static 'studentdirectory/css/vendor/kendo.bootstrap.min.css' %}">
         <!-- <link rel="stylesheet" href="{% static "studentdirectory/css/vendor/kendo.default.mobile.css" %}"> -->
 
-        <script src="{% static "studentdirectory/js/vendor/modernizr-2.8.3.min.js" %}"></script>
+        <script src="{% static 'studentdirectory/js/vendor/modernizr-2.8.3.min.js' %}"></script>
     </head>
+    
     <body>
-        <!--[if lt IE 8]>
+        <!--[if lt IE 8]
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <!-- <script id="fileEditListTemplate" type="text/x-kendo-template">
@@ -164,7 +164,7 @@
                     </div>
                   </div>
                 </div>
-              </div> 
+              </div>
               <!-- tab 4 medical info -->
               <div>
                 <div class="k-edit-label"><label for="blood_group">Blood group</label></div>
@@ -215,7 +215,7 @@
                       <input data-bind="value:transfered_out_reason" class="k-input k-textbox" />
                     </div>
                   </div>
-                  
+
                 </div>
               </div>
               <!-- tab 6 files -->
@@ -236,6 +236,7 @@
             </div>
           </div>
         </script> <!-- /popup editor template -->
+
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -247,7 +248,7 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="#">
-                <img src="{% static "studentdirectory/img/ideallogo.png" %}" alt="Ideal School">
+                <img src="{% static 'teacherdirectory/img/ideallogo.png' %}" alt="Ideal School">
               </a>
             </div>
 
@@ -262,9 +263,9 @@
                     <li><a href="/staff/">Staff</a></li>
                   </ul>
                 </li>
-                <li class=""><a href="#">Classes<span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="/classes/">Classes<span class="sr-only">(current)</span></a></li>
                 <li class=""><a href="#">Organizer<span class="sr-only">(current)</span></a></li>
-                <li class=""><a href="#">Guardians<span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="/staff/parents/">Guardians<span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -332,13 +333,13 @@
 
         <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
         <!--<script>window.jQuery || document.write('<script src="{% static "studentdirectory/js/vendor/jquery-1.12.0.min.js" %}"><\/script>')</script>-->
-        <script src="{% static "studentdirectory/js/vendor/jquery-1.12.0.min.js" %}"></script>
-        <script src="{% static "studentdirectory/js/plugins.js" %}"></script>
-        <script src="{% static "studentdirectory/js/main.js" %}"></script>
+        <script src="{% static 'studentdirectory/js/vendor/jquery-1.12.0.min.js' %}"></script>
+        <script src="{% static 'studentdirectory/js/plugins.js' %}"></script>
+        <script src="{% static 'studentdirectory/js/main.js' %}"></script>
 
         <!-- external -->
-        <script src="{% static "studentdirectory/js/vendor/bootstrap.min.js" %}"></script>
-        <script src="{% static "studentdirectory/js/vendor/kendo.all.min.js" %}"></script>
+        <script src="{% static 'studentdirectory/js/vendor/bootstrap.min.js' %}"></script>
+        <script src="{% static 'studentdirectory/js/vendor/kendo.all.min.js' %}"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

@@ -7,3 +7,7 @@ files/*
 *.log
 *.pid
 studentdirectory/migrations
+teacherdirectory/migrations
+staffdirectory/migrations
+classesdirectory/migrations
+

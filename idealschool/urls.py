@@ -18,8 +18,14 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from studentdirectory import views
+from teacherdirectory import views
+from staffdirectory import views
+from classesdirectory import views
 urlpatterns = [
-    url(r'^admin', admin.site.urls),
-    url(r'^$', views.index, name='index'),
-    url(r'^students/', include('studentdirectory.urls'), name='students')
+    url(r'^admin/', admin.site.urls),
+    #url(r'^$', views.index, name='index'),
+    url(r'^teachers/', include('teacherdirectory.urls'), name='teachers'),
+    url(r'^students/', include('studentdirectory.urls'), name='students'),
+    url(r'^staff/', include('staffdirectory.urls'), name='staff'),
+    url(r'^classes/', include('classesdirectory.urls'), name='classes')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

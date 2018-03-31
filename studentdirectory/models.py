@@ -5,6 +5,7 @@ from django.db import models
 import uuid
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
+from teacherdirectory.models import Teacher
 # Create your models here.
 
 def student_image_path(instance, filename):
@@ -87,5 +88,39 @@ def delete_student_image(sender, **kwargs):
 		image.delete()
 	except Exception as e:
 		print e
+
+
+class Class(models.Model):
+	clsuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	name = models.CharField(max_length=10)
+	academic_year = models.CharField(max_length=4)
+	branch = models.CharField(max_length=200)
+	teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, blank=True, null=True)
+	students = models.ManyToManyField(Student)
+
+class Attendance(models.Model):
+	attuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	academic_year = models.CharField(max_length=4)
+	date = models.DateField()
+	hour = models.CharField(max_length=10, null=True)
+	attend = models.BooleanField(default=True)
+	taken_by = models.ForeignKey(Teacher, on_delete=models.SET_NULL, blank=True, null=True)
+	student = models.ForeignKey(Student, on_delete=models.SET_NULL, null=True)
+	clas = models.ForeignKey(Class, on_delete=models.SET_NULL, blank=True, null=True)
+
+class Subject(models.Model):
+	sub_uid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	subject = models.CharField(max_length=100)
+	lecturer = models.ForeignKey(Teacher, on_delete=models.SET_NULL, blank=True, null=True)
+	clas = models.ForeignKey(Class, on_delete=models.SET_NULL, blank=True, null=True)
+
+class Performance(models.Model):
+	puid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	academic_year = models.CharField(max_length=4)
+	date = models.DateField()
+	performance_score = models.CharField(max_length=4)
+	subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, blank=True, null=True)
+	student = models.ForeignKey(Student, on_delete=models.SET_NULL, null=True)
+	clas = models.ForeignKey(Class, on_delete=models.SET_NULL, blank=True, null=True)
 
 

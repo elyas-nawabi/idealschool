@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'studentdirectory'
+    'studentdirectory',
+    'teacherdirectory',
+    'staffdirectory',
+    'classesdirectory'
 ]
 
 MIDDLEWARE = [
@@ -57,6 +60,9 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             'studentdirectory/templates',
+            'teacherdirectory/templates',
+            'staffdirectory/templates',
+            'classesdirectory/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -122,4 +128,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/'
-MEDIA_ROOT = '/home/yasir/idealschool/'
+MEDIA_ROOT = '/home/tor/idealschool/'
